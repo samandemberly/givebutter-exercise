@@ -65,18 +65,24 @@ function App() {
     setEvolutionChain(currentChain);
     setPokemonDetails(details);
 
-    const moveArray = [];
+    let moveArray = [];
     const usedIndexes = [];
 
     let i = 0;
     const moves = details.moves;
-    while (i < 4) {
-      const index = randomIntFromInterval(0, moves.length - 1);
-      if (!usedIndexes.includes(index)) {
-        moveArray.push(moves[index]);
-        i++;
+    if (moves.length < 4) {
+      moveArray = [...moves];
+    } else {
+      while (i < 4) {
+        const index = randomIntFromInterval(0, moves.length - 1);
+        if (!usedIndexes.includes(index)) {
+          usedIndexes.push(index);
+          moveArray.push(moves[index]);
+          i++;
+        }
       }
     }
+
     setPokemonDetailMoves(moveArray);
   };
 
@@ -92,19 +98,21 @@ function App() {
       <div className={"pokedex__content"}>
         {pokemon.length > 0 ? (
           <div className={"pokedex__search-results"}>
-            {pokemon.map((monster) => {
-              return (
-                <div className={"pokedex__list-item"} key={monster.name}>
-                  <div>{monster.name}</div>
-                  <button
-                    className={"pokedex__list-item-button"}
-                    onClick={onGetDetails(monster.name)}
-                  >
-                    Get Details
-                  </button>
-                </div>
-              );
-            })}
+            <div className={"pokedex__search-results-container"}>
+              {pokemon.map((monster) => {
+                return (
+                  <div className={"pokedex__list-item"} key={monster.name}>
+                    <div>{monster.name}</div>
+                    <button
+                      className={"pokedex__list-item-button"}
+                      onClick={onGetDetails(monster.name)}
+                    >
+                      Get Details
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : (
           <span>No Results Found</span>
@@ -131,12 +139,12 @@ function App() {
               </div>
             </div>
             <div className={"pokedex__details-evolutions"}>
-              <span className={"pokedex__details-evolution-title"}>Evolutions</span>
+              <span className={"pokedex__details-evolution-title"}>
+                Evolutions
+              </span>
               <div className={"pokedex__details-evolution-item-list"}>
                 {evolutionChain.map((item) => (
-                  <p className={"pokedex__details-evolution-item"}>
-                    {item}
-                  </p>
+                  <p className={"pokedex__details-evolution-item"}>{item}</p>
                 ))}
               </div>
             </div>

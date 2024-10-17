@@ -28,11 +28,13 @@ h4 {
 }
 
 .pokedex__search-results {
-  border: 2px solid red;
-  padding-bottom: 3px;
   overflow-y: auto;
   width: 100%;
+}
 
+.pokedex__search-results-container {
+  border: 2px solid red;
+  padding-bottom: 3px;
 }
 
 .pokedex__list-item {
