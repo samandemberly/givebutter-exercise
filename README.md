@@ -48,6 +48,13 @@ Please take some time to answer the following questions. Your answers should go 
 
 - Given more time, what would you suggest for improving the performance of this app?
 
+At the moment the search filters an array. As that array increases in size
+the filter could feel very laggy. Having a search api that takes input and 
+a page size would scale much better
+
 - Is there anything you would consider doing if we were to go live with this app?
+It would need to look much better. I would want to have an accompanying test suite
 
 - What was the most challenging aspect of this work for you (if at all)?
+The most time consuming part was nailing down the CSS (I think I got all I
+meant to). The most interesting challenge was the evolution chain.
