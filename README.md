@@ -5,9 +5,9 @@
 Our goal is to fix and enhance a Pokedex application. If you are unfamiliar with the world of Pokemon, here is a brief explanation:
 
 > The Pokedex is an electronic device created and designed to catalog and provide information regarding the various species of Pokemon featured in the Pokemon video game, anime and manga series.
- 
+
 [Source](https://pokemon.fandom.com/wiki/Pokedex)
- 
+
 Our version of the Pokedex is able to list and search through Pokemon. However, our search is a bit buggy. Additionally, we want to add a feature that shows a selected Pokemon's details like its **type**, **moves**, and **evolution chain**.
 
 Your time is valuable, and we are extremely appreciative of you participating in this assessment. We're looking to gauge your ability to read and edit code, understand instructions, and deliver features, just as you would during your typical day-to-day work. We expect this test to take no more than one to two hours and ask to complete this work within the next two days. Upon submit, we will review and provide feedback to you regardless of our decision to continue the process.
@@ -35,7 +35,7 @@ When you are finished, please upload your completed work to your Github and invi
 ![](mockup0.png)
 
 ### Details Card
-     
+
 - Clicking "Get Details" for any given Pokemon should render a card that has the Pokemon's `name`, `types`, `moves`, and `evolution chain`
 - Use the api functions defined in `api.js` to retrieve this data. Adding new endpoints or editing existing ones are out of scope
 - The details card should match the below mockup
@@ -49,12 +49,14 @@ Please take some time to answer the following questions. Your answers should go 
 - Given more time, what would you suggest for improving the performance of this app?
 
 At the moment the search filters an array. As that array increases in size
-the filter could feel very laggy. Having a search api that takes input and 
-a page size would scale much better
+the filter could feel very laggy. Having a search api that takes input and
+a page size would scale much better.  We could also debounce the search so there isn't a request going with each keystroke.
 
 - Is there anything you would consider doing if we were to go live with this app?
-It would need to look much better. I would want to have an accompanying test suite
+
+It would need to look much better. There's a lot of data that comes back from the api that could be used to make the page more fun.  We could include the sprite for example.  There are also at least 4 components that should be broken out of the main App.js file. Each component would have it's own CSS, so it wouldn't be all in one styles file. I would want each component to have it's own accompanying test suite as well
 
 - What was the most challenging aspect of this work for you (if at all)?
+
 The most time consuming part was nailing down the CSS (I think I got all I
 meant to). The most interesting challenge was the evolution chain.
